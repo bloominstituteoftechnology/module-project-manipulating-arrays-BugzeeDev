@@ -167,8 +167,14 @@
     // 🧠 The "tail" prop contains an array holding the elements of the array after the first one.
     // 🧠 Examples of usage:
     // headAndTail([1, 2, 3]) // should return { head: 1, tail: [2, 3] }
-    function headAndTail() {
+    function headAndTail(array) {
+      let i = 0
+      let head = array.at(0)
+      let tail = array.slice(1)
 
+      let obj = {head, tail}
+
+      return obj 
     }
 
     // 👉 CHALLENGE 8
@@ -178,9 +184,26 @@
     // nestedLoops(['hello', 'goodbye']) // should return ['hEllO', 'gOOdbyE']
     // ❗ Notes:
     // 🧠 To capitalize a string you can use its toUpperCase method: "a".toUpperCase() returns "A"
-    function nestedLoops() {
+    function nestedLoops(strings) {
+      let newStrings = []
+      for (let i in strings) {
+        let word = strings[i]
 
-    }
+        let modified = ''
+        for (let i in word) {
+            let char = word[i]
+            if (char === 'a' || char === 'e' || char === 'i' || char === 'o' || char === 'u') {
+              let upperCase = char.toUpperCase()
+              modified += upperCase
+            } else {
+              modified += char
+            }
+          }
+          newStrings.push(modified)
+        }
+        return newStrings
+      }
+    
 
     // 👉 CHALLENGE 9
     // 🧠 The function crazyTrimmer takes an array as its argument.
